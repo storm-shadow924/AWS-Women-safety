@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Then vs Now</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-text">🌸 Then vs Now</div>
+        <div class="logo-sub">Your transformation journey</div>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar">👩</div>
+        <div class="user-name" id="sidebarName">Loading...</div>
+        <div class="user-streak" id="sidebarStreak">🔥 0 day streak</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        <a href="dashboard.html" class="nav-item active">
+          <span class="nav-icon">🏠</span> Dashboard
+        </a>
+        <a href="module.html?type=career" class="nav-item">
+          <span class="nav-icon">💼</span> Career
+        </a>
+        <a href="module.html?type=lifestyle" class="nav-item">
+          <span class="nav-icon">✨</span> Lifestyle
+        </a>
+        <a href="module.html?type=fitness" class="nav-item">
+          <span class="nav-icon">💪</span> Fitness
+        </a>
+        <a href="module.html?type=mental" class="nav-item">
+          <span class="nav-icon">🧠</span> Mental Health
+        </a>
+        <div class="nav-section-title">Progress</div>
+        <a href="transformation.html" class="nav-item">
+          <span class="nav-icon">🔄</span> Transformation
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" id="logoutBtn" style="color:rgba(255,255,255,0.7);">
+          <span class="nav-icon">🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Main -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 id="welcomeMsg">Good morning 🌸</h1>
+        <p>Here's your transformation overview</p>
+      </div>
+
+      <!-- Quote -->
+      <div class="quote-card" id="quoteCard">
+        <div class="quote-text" id="quoteText">Loading your daily inspiration...</div>
+        <div class="quote-author" id="quoteAuthor"></div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value" id="statModules">0</div>
+          <div class="stat-label">Modules Active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="statEntries">0</div>
+          <div class="stat-label">Progress Entries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="statStreak">0</div>
+          <div class="stat-label">Day Streak 🔥</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="statGrowth">0%</div>
+          <div class="stat-label">Avg Growth</div>
+        </div>
+      </div>
+
+      <!-- Modules -->
+      <div class="section-title">📊 Your Modules</div>
+      <div class="card-grid" id="modulesGrid">
+        <div class="empty-state">
+          <div class="empty-icon">🌱</div>
+          <p>No modules yet. Start by adding one below!</p>
+        </div>
+      </div>
+
+      <!-- Quick Start -->
+      <div class="section-title mt-24">🚀 Quick Start</div>
+      <div class="card-grid">
+        <a href="module.html?type=career" class="module-card career">
+          <div class="module-icon">💼</div>
+          <h3>Career</h3>
+          <p>Track your professional growth and goals</p>
+        </a>
+        <a href="module.html?type=lifestyle" class="module-card lifestyle">
+          <div class="module-icon">✨</div>
+          <h3>Lifestyle</h3>
+          <p>Build habits and improve daily routines</p>
+        </a>
+        <a href="module.html?type=fitness" class="module-card fitness">
+          <div class="module-icon">💪</div>
+          <h3>Fitness</h3>
+          <p>Transform your body and energy levels</p>
+        </a>
+        <a href="module.html?type=mental" class="module-card mental">
+          <div class="module-icon">🧠</div>
+          <h3>Mental Health</h3>
+          <p>Nurture your mind and emotional wellbeing</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Chatbot -->
+  <button class="chatbot-fab" id="chatFab" title="Chat with your wellness guide">💬</button>
+  <div class="chatbot-window" id="chatWindow">
+    <div class="chatbot-header">
+      <span>🌸 Wellness Guide</span>
+      <button onclick="document.getElementById('chatWindow').classList.remove('open')" style="background:none;border:none;color:white;cursor:pointer;font-size:1.1rem;">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="chat-msg bot">Hello! I'm your wellness guide. How can I support you today? 💜</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Type a message..." />
+      <button id="chatSend">➤</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

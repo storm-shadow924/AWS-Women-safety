@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transformation — Then vs Now</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-text">🌸 Then vs Now</div>
+        <div class="logo-sub">Your transformation journey</div>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar">👩</div>
+        <div class="user-name" id="sidebarName">Loading...</div>
+        <div class="user-streak" id="sidebarStreak">🔥 0 day streak</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        <a href="dashboard.html" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
+        <a href="module.html?type=career" class="nav-item"><span class="nav-icon">💼</span> Career</a>
+        <a href="module.html?type=lifestyle" class="nav-item"><span class="nav-icon">✨</span> Lifestyle</a>
+        <a href="module.html?type=fitness" class="nav-item"><span class="nav-icon">💪</span> Fitness</a>
+        <a href="module.html?type=mental" class="nav-item"><span class="nav-icon">🧠</span> Mental Health</a>
+        <div class="nav-section-title">Progress</div>
+        <a href="transformation.html" class="nav-item active"><span class="nav-icon">🔄</span> Transformation</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" id="logoutBtn" style="color:rgba(255,255,255,0.7);">
+          <span class="nav-icon">🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>🔄 Your Transformation</h1>
+        <p>See how far you've come — THEN vs NOW</p>
+      </div>
+
+      <!-- Overall Growth -->
+      <div class="card" style="margin-bottom:28px;background:linear-gradient(135deg,var(--lavender-light),var(--peach));">
+        <div class="section-title">🌟 Overall Growth Summary</div>
+        <div class="stats-row" style="margin-bottom:0;">
+          <div class="stat-card">
+            <div class="stat-value" id="overallModules">0</div>
+            <div class="stat-label">Modules Tracked</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="overallEntries">0</div>
+            <div class="stat-label">Total Entries</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="overallGrowth">0%</div>
+            <div class="stat-label">Average Growth</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Per-module transformation -->
+      <div id="transformationCards">
+        <div class="empty-state">
+          <div class="empty-icon">🌱</div>
+          <p>Start tracking modules to see your transformation here.</p>
+        </div>
+      </div>
+
+      <!-- Overall chart -->
+      <div class="chart-wrap mt-24" id="overallChartWrap" style="display:none;">
+        <h3>📊 All Modules — Rating Comparison</h3>
+        <canvas id="overallChart" height="100"></canvas>
+      </div>
+    </main>
+  </div>
+
+  <button class="chatbot-fab" id="chatFab">💬</button>
+  <div class="chatbot-window" id="chatWindow">
+    <div class="chatbot-header">
+      <span>🌸 Wellness Guide</span>
+      <button onclick="document.getElementById('chatWindow').classList.remove('open')" style="background:none;border:none;color:white;cursor:pointer;font-size:1.1rem;">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="chat-msg bot">Hello! I'm your wellness guide. How can I support you today? 💜</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Type a message..." />
+      <button id="chatSend">➤</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/transformation.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module — Then vs Now</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-text">🌸 Then vs Now</div>
+        <div class="logo-sub">Your transformation journey</div>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar">👩</div>
+        <div class="user-name" id="sidebarName">Loading...</div>
+        <div class="user-streak" id="sidebarStreak">🔥 0 day streak</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        <a href="dashboard.html" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
+        <a href="module.html?type=career" class="nav-item" id="navCareer"><span class="nav-icon">💼</span> Career</a>
+        <a href="module.html?type=lifestyle" class="nav-item" id="navLifestyle"><span class="nav-icon">✨</span> Lifestyle</a>
+        <a href="module.html?type=fitness" class="nav-item" id="navFitness"><span class="nav-icon">💪</span> Fitness</a>
+        <a href="module.html?type=mental" class="nav-item" id="navMental"><span class="nav-icon">🧠</span> Mental Health</a>
+        <div class="nav-section-title">Progress</div>
+        <a href="transformation.html" class="nav-item"><span class="nav-icon">🔄</span> Transformation</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" id="logoutBtn" style="color:rgba(255,255,255,0.7);">
+          <span class="nav-icon">🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1 id="moduleTitle">Module</h1>
+        <p id="moduleSubtitle">Track your journey</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="then">📌 THEN</button>
+        <button class="tab-btn" data-tab="now">🌟 NOW</button>
+        <button class="tab-btn" data-tab="suggestions">💡 Suggestions</button>
+        <button class="tab-btn" data-tab="tracker">📈 Tracker</button>
+      </div>
+
+      <!-- THEN Tab -->
+      <div class="tab-content active" id="tab-then">
+        <div id="thenExisting" style="display:none;">
+          <div class="card" style="margin-bottom:20px;">
+            <div class="section-title">📌 Your Starting Point (THEN)</div>
+            <p id="thenDesc" style="color:var(--text-mid);margin-bottom:12px;"></p>
+            <div class="flex gap-8" style="align-items:center;">
+              <span style="font-size:0.85rem;color:var(--text-light);">Initial Rating:</span>
+              <span class="rating-badge" id="thenRating"></span>
+              <span style="font-size:0.8rem;color:var(--text-light);" id="thenDate"></span>
+            </div>
+          </div>
+        </div>
+        <div id="thenForm">
+          <div class="card">
+            <div class="section-title">📌 Describe Your Starting Point</div>
+            <p style="color:var(--text-light);font-size:0.88rem;margin-bottom:20px;">Be honest with yourself. This is your "THEN" — where you are right now.</p>
+            <div class="error-msg" id="thenError"></div>
+            <div class="form-group">
+              <label>Describe your current situation</label>
+              <textarea id="thenDescription" placeholder="e.g. I feel stuck in my career, I haven't been exercising, I feel stressed most days..." rows="5"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Rate your current state (1–10)</label>
+              <div class="rating-group">
+                <input type="range" id="thenRatingInput" min="1" max="10" value="5" />
+                <span class="rating-display" id="thenRatingDisplay">5</span>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="saveThenBtn">Save My Starting Point</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOW Tab -->
+      <div class="tab-content" id="tab-now">
+        <div class="card" style="margin-bottom:20px;" id="nowFormCard">
+          <div class="section-title">🌟 Add Progress Entry</div>
+          <div class="error-msg" id="nowError"></div>
+          <div class="success-msg" id="nowSuccess"></div>
+          <div class="form-group">
+            <label>How are things now?</label>
+            <textarea id="nowNote" placeholder="Describe your progress, what changed, how you feel..." rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Rate your current state (1–10)</label>
+            <div class="rating-group">
+              <input type="range" id="nowRatingInput" min="1" max="10" value="5" />
+              <span class="rating-display" id="nowRatingDisplay">5</span>
+            </div>
+          </div>
+          <button class="btn btn-peach" id="saveNowBtn">Add Progress Entry</button>
+        </div>
+
+        <div class="section-title">📅 Progress Timeline</div>
+        <div class="timeline" id="nowTimeline">
+          <div class="empty-state">
+            <div class="empty-icon">📝</div>
+            <p>No progress entries yet. Add your first one above!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggestions Tab -->
+      <div class="tab-content" id="tab-suggestions">
+        <div class="card">
+          <div class="section-title">💡 Personalized Suggestions</div>
+          <p style="color:var(--text-light);font-size:0.88rem;margin-bottom:20px;">Based on what you've shared, here are some steps to help you grow:</p>
+          <ul class="suggestions-list" id="suggestionsList">
+            <div class="empty-state">
+              <div class="empty-icon">💭</div>
+              <p>Save your THEN entry to get personalized suggestions.</p>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tracker Tab -->
+      <div class="tab-content" id="tab-tracker">
+        <div class="chart-wrap">
+          <h3>📈 Rating Progress Over Time</h3>
+          <canvas id="progressChart" height="120"></canvas>
+        </div>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-value" id="trackerStart">—</div>
+            <div class="stat-label">Starting Rating</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="trackerLatest">—</div>
+            <div class="stat-label">Latest Rating</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="trackerGrowth">—</div>
+            <div class="stat-label">Growth</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="trackerEntries">0</div>
+            <div class="stat-label">Total Entries</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <button class="chatbot-fab" id="chatFab">💬</button>
+  <div class="chatbot-window" id="chatWindow">
+    <div class="chatbot-header">
+      <span>🌸 Wellness Guide</span>
+      <button onclick="document.getElementById('chatWindow').classList.remove('open')" style="background:none;border:none;color:white;cursor:pointer;font-size:1.1rem;">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="chat-msg bot">Hello! I'm your wellness guide. How can I support you today? 💜</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Type a message..." />
+      <button id="chatSend">➤</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/module.js"></script>
+</body>
+</html>
